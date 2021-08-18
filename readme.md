@@ -1,9 +1,9 @@
-#Lab1: Poll Simulator 
+# Lab1: Poll Simulator 
 
-##Student ID: 202012017
-##Student Name: Jay Kothari
-##Subject: IT618 Enterprise Computing
-##Lab: 1
+## Student ID: 202012017
+## Student Name: Jay Kothari
+## Subject: IT618 Enterprise Computing
+## Lab: 1
 
 
 **Using REST APIs that handles business logic, which also allows different clients to call the APIs without any change in business logic.**
@@ -31,14 +31,14 @@ Go to: [localhost:8000](localhost:8000)
 
 
 
-###Functionalities Implemented
+### Functionalities Implemented
 
-####The backend folder handles all the business logic.
+#### The backend folder handles all the business logic.
 backend/urls.py => Handles routing for all the REST APIs 
 backend/views.py => Contains the APIs code.
 
 
-####List of APIs: 
+#### List of APIs: 
 GET: [http://localhost:8000/api/add_candidate/](http://localhost:8000/api/add_candidate/): List of all candidates.
 
 POST: [http://localhost:8000/api/add_candidate/](http://localhost:8000/api/add_candidate/): Add Candidates, check added to prevent registration by same student again based on Student ID.
@@ -61,7 +61,7 @@ GET: [http://localhost:8000/api/get_winner/](http://localhost:8000/api/get_winne
 
 
 
-####The backend folder handles all the business logic.
+#### The backend folder handles all the business logic.
 frontend/urls.py => Handles routing
 frontend/views.py => Just Serves the HTML page.
 
@@ -70,7 +70,7 @@ frontend/views.py => Just Serves the HTML page.
 **frontend/views.py only serves the file and doesn't provide any data.**
 
 
-####HTML pages: 
+#### HTML pages: 
 [Homepage](http://localhost:8000): frontend/index.html
 
 
