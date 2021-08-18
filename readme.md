@@ -5,7 +5,7 @@
 ## Subject: IT618 Enterprise Computing
 ## Lab: 1
 
-**Tech Stack**
+#### **Tech Stack**
 - Backend
     - Python
     - Django 
