@@ -5,12 +5,19 @@
 ## Subject: IT618 Enterprise Computing
 ## Lab: 1
 
+**Tech Stack**
+- Backend
+    - Python
+    - Django 
+    - Django Rest Framework
+- Frontend
+    - JQuery
 
 **Using REST APIs that handles business logic, which also allows different clients to call the APIs without any change in business logic.**
 
 
 Usage:
-### Create a virtual environment to isolate our package dependencies locally
+#### Create a virtual environment to isolate our package dependencies locally
 ```
 python3 -m venv env
 #or 
