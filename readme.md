@@ -41,9 +41,28 @@ Go to: [http://localhost:8000](http://localhost:8000)
 
 ### Functionalities Implemented
 
-#### The backend folder handles all the business logic.
+#### The backend app handles all the business logic.
 backend/urls.py => Handles routing for all the REST APIs 
 backend/views.py => Contains the APIs code.
+
+```
+# backend/views.py 
+# Candidate details will be stored in a list with the structure mentioned below
+# candidates = [
+#   {
+#     StudentID: ,
+#     StudentName: ,
+#     Votes:
+#   },
+# ]
+candidates = []
+
+# A list will be maintained to prevent repeated voting
+students_voted = []
+```
+
+candidates and students_voted variables are used to store Candidate's Data and list of StudentID's respectively.
+The are defined as global varibale in backend/views.py file so their values remains same for all the clients.
 
 
 #### List of APIs: 
@@ -69,7 +88,7 @@ GET: [http://localhost:8000/api/get_winner/](http://localhost:8000/api/get_winne
 
 
 
-#### The backend folder handles all the business logic.
+#### The frontend app is used to serve the HTML files.
 frontend/urls.py => Handles routing
 frontend/views.py => Just Serves the HTML page.
 
