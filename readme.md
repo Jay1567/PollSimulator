@@ -35,7 +35,7 @@ cd PollSimulator/
 python manage.py runserver
 ```
 
-Go to: [localhost:8000](localhost:8000)
+Go to: [http://localhost:8000](http://localhost:8000)
 
 
 
