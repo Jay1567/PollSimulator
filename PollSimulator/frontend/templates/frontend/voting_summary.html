@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Poll Simulator</title>
+        <style>
+        .content{
+            border: 1px solid black;
+            padding: 5px;
+            width: max-content;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h3>Voting Report:</h3>
+
+        <span id="CandidateList"></span>
+    </div>
+    
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" language="javascript">
+        $(document).ready(function () {
+            $.ajax({
+                type: "GET",
+                url: '/api/add_candidate/',
+                success: function(data){
+                        console.log(data['results'])
+                        str = ''
+                        data['results'].forEach(element => {
+                            str += `
+                                ${element['StudentName']}: ${element['Votes']} 
+                                <br>[${element['StudentID']}]
+                                <br><br>
+                            `
+                        });
+
+                        $('#CandidateList').html(str);
+                    }
+                })
+        });
+    </script>
+</body>
+</html>

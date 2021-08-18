@@ -31,7 +31,7 @@ class CandidateView(APIView):
             None)
 
         if check is not None:
-            return Response({"results": "Candidate with same StudentID already exists"})
+            return Response({"results": "Candidate with same Student ID already exists"})
 
         candidates.append({
             "StudentID": request.data.get('StudentID'),

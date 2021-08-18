@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Poll Simulator</title>
+
+    <style>
+        .content{
+            border: 1px solid black;
+            padding: 5px;
+            width: max-content;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="content">
+        <h3>Caste Vote</h3>
+        <form id="Vote">
+
+            Student ID: 
+            <input type="number" id="StudentID" name="StudentID" required>
+            <br>
+
+            <span id="CandidateList">
+
+            </span>
+
+            <br>
+            <input type="submit" id="submit" value="Caste Vote"></input>
+        </form>
+        <p id="msg"></p>
+    </div>
+    
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" language="javascript">
+        $(document).ready(function () {
+            $.ajax({
+                type: "GET",
+                url: '/api/add_candidate/',
+                success: function(data){
+                        console.log(data['results'])
+                        str = ''
+                        
+                        data['results'].forEach(element => {
+                            str += `
+                                <input type="radio" name="CandidateID" id="${element['StudentID']}" required>
+                                &nbsp; ${element['StudentName']} [${element['StudentID']}]
+                                <br>
+                            `
+                        });
+
+                        if(str == ''){
+                            str = '<br>No Candidates available. Check back later'
+                            $('#submit').attr('disabled', true);
+                        }
+
+                        $('#CandidateList').html(str);
+                    }
+                })
+
+            $('#Vote').submit(function(e) {
+
+                e.preventDefault(); 
+    
+                var form = $(this);
+            
+                $.ajax({
+                    type: "POST",
+                    url: '/api/cast_vote/',
+                    data: {
+                        'CandidateID': $('input[name="CandidateID"]:checked').attr('id'),
+                        'StudentID': $('#StudentID').val()
+                    }, 
+                    success: function(data){
+                            $('#msg').html(data['results']);
+                        }
+                    });
+                });
+        });
+    </script>
+</body>
+</html>

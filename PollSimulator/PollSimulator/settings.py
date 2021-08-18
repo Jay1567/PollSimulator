@@ -41,6 +41,7 @@ INSTALLED_APPS = [
 
     # Created Apps
     'backend',
+    'frontend',
 ]
 
 MIDDLEWARE = [

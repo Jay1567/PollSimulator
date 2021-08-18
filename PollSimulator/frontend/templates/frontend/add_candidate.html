@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Poll Simulator</title>
+
+    <style>
+        .content{
+            text-align: center;
+            border: 1px solid black;
+            padding: 5px;
+            width: max-content;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h3>Add Candidate</h3>
+
+        <form id="AddCandidate">
+            Student ID: 
+            <input type="number" id="StudentID" name="StudentID" required>
+
+            <br>
+            Candidate Name: 
+            <input type="text" id="StudentName" name="StudentName" required>
+
+            <br>
+            <input type="submit" value="Add Candidate">
+        </form>
+        <p id="msg"></p>
+    </div>
+    
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" language="javascript">
+        $(document).ready(function () {
+            $('#AddCandidate').submit(function(e) {
+
+            e.preventDefault(); 
+
+            var form = $(this);
+
+            $.ajax({
+                type: "POST",
+                url: '/api/add_candidate/',
+                data: form.serialize(), 
+                success: function(data){
+                        $('#msg').html(data['results']); 
+                    }
+                });
+
+
+            });
+        });
+    </script>
+</body>
+</html>
