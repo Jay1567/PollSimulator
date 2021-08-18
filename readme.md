@@ -11,22 +11,22 @@
 
 Usage:
 ### Create a virtual environment to isolate our package dependencies locally
-'''
+```
 python3 -m venv env
 #or 
 virtualenv env --python=python3.6   
 source env/bin/activate  # On Windows use `env\Scripts\activate`
 
 pip install -r requirements.txt
-'''
+```
 
 
 To Run program, start django server 
-'''
+```
 cd PollSimulator/ 
 
 python manage.py runserver
-'''
+```
 
 Go to: [localhost:8000](localhost:8000)
 
